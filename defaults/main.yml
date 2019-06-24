@@ -1,0 +1,15 @@
+---
+# defaults for crystal-multi-tool.coot
+
+# install Coot suite
+coot: yes
+
+# download settings
+coot_download_url: "https://www2.mrc-lmb.cam.ac.uk/personal/pemsley/coot/binaries/release/coot-0.8.9.1-binary-Linux-x86_64-rhel-6-python-gtk2.tar.gz"
+coot_download_dir: "/tmp"
+
+# install settings
+coot_install_dir: "/usr/local/"
+coot_owner: '{{ cmt_owner | default("root") }}'
+coot_group: '{{ cmt_group | default("root") }}'
+coot_mode: "{{ cmt_mode | default(0755) }}"

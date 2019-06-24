@@ -1,0 +1,6 @@
+---
+# main tasks file for crystal-multi-tool.coot
+
+- include_tasks: coot.yml
+  when: coot == true
+  tags: coot

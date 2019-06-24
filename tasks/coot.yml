@@ -1,0 +1,33 @@
+---
+# install Coot suite
+
+- name: install Coot dependencies
+  yum:
+    name:
+      - libgnomecanvas
+      - libGL
+      - libGLU
+      - libpng12
+      - libXmu
+      - "@X Window System"
+    state: present
+
+- name: create Coot install directory
+  file:
+    path: "{{ coot_install_dir }}"
+    state: directory
+
+- name: download Coot
+  get_url:
+    url: "{{ coot_download_url }}"
+    dest: "{{ coot_download_dir }}/coot.tar.gz"
+
+- name: install Coot
+  unarchive:
+    src: "{{ coot_download_dir }}/coot.tar.gz"
+    dest: "{{ coot_install_dir }}"
+    owner: "{{ coot_owner }}"
+    group: "{{ coot_group }}"
+    mode: "{{ coot_mode }}"
+    copy: no
+    extra_opts: "--strip-components=1"
